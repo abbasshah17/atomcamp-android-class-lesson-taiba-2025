@@ -2,15 +2,34 @@ package com.atomcamp.abbas
 
 fun main() {
 
+    dataExample()
+}
+
+fun dataExample() {
+    val abbas = Owner(
+        name = "Abbas Anwer",
+        address = "Islamabad, Pakistan",
+    )
+
+    var rehan = abbas
+
+    val result: Boolean = rehan === abbas
+
+    println("Result = ${result}")
+}
+
+fun enumExample() {
     val today: DaysOfWeek = DaysOfWeek.WEDNESDAY
 
     println("The day today is ${today.value}")
     println("The number of Day in the week ${today.dayInWeek()}.")
 }
 
-fun drive() {
+fun animals() {
     val listOfAnimals: List<Animal> = listOf(
-        Cat(),
+        Cat(
+            petName = "Mr. Miyagi",
+        ),
         Dog(),
     )
 
@@ -33,9 +52,26 @@ interface Animal {
 }
 
 class Cat(
+
 ): Animal {
 
+    private var petName: String = ""
+
     override val name: String = "Cat"
+
+    constructor(
+        petName: String,
+    ): this() {
+        this.petName = petName
+    }
+
+    init {
+        println("Second Block.")
+    }
+
+    init {
+        println("First Block.")
+    }
 
     override fun makeASound() {
         println("Meow")
@@ -48,7 +84,12 @@ class Cat(
 
 class Dog(
 ): Animal {
+
     override val name: String = "Dog"
+
+    init {
+        println("$name object has been created.")
+    }
 
     override fun makeASound() {
         println("Woof Woof")
