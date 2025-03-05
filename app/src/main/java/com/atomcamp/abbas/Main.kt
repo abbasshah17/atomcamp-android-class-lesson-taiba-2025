@@ -2,38 +2,41 @@ package com.atomcamp.abbas
 
 fun main() {
 
-    val animal: Animal = Cat()
-    val animal2: Animal = Dog()
+    val today: DaysOfWeek = DaysOfWeek.WEDNESDAY
 
+    println("The day today is ${today.value}")
+    println("The number of Day in the week ${today.dayInWeek()}.")
+}
+
+fun drive() {
     val listOfAnimals: List<Animal> = listOf(
         Cat(),
         Dog(),
     )
 
-    sound(animal)
-    sound(animal2)
+    listOfAnimals.forEach { animal ->
+        animal.sound()
+    }
 }
 
-fun sound(
-    animal: Animal,
-) {
-    animal.whatSoundItMakes()
-    animal.makeASound()
+fun Animal.sound() {
+    whatSoundItMakes()
+    makeASound()
 }
 
-abstract class Animal(
-    val name: String,
-) {
-    abstract fun makeASound()
+interface Animal {
+    val name: String
 
-    abstract fun whatSoundItMakes()
+    fun makeASound()
+
+    fun whatSoundItMakes()
 }
 
 class Cat(
+): Animal {
 
-): Animal(
-    name = "Cat",
-) {
+    override val name: String = "Cat"
+
     override fun makeASound() {
         println("Meow")
     }
@@ -44,9 +47,8 @@ class Cat(
 }
 
 class Dog(
-): Animal(
-    name = "Dog"
-) {
+): Animal {
+    override val name: String = "Dog"
 
     override fun makeASound() {
         println("Woof Woof")
