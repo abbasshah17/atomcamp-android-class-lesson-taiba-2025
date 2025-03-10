@@ -36,9 +36,20 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Log.i("MainActivity", "Scaffold is being rendered")
 
-                    Greeting(
-                        name = "Abbas",
-                        modifier = Modifier.padding(innerPadding)
+                    ListScreen(
+                        modifier = Modifier
+                            .padding(innerPadding),
+                        items = listOf(
+                            ProfileExtended.Example1,
+                            Profile.Example1,
+                            Profile.Example2,
+                            Profile.Example3,
+                            Profile.Example4,
+                            Profile.Example5,
+                            Profile.Example6,
+                            Profile.Example7,
+                            Profile.Example8,
+                        )
                     )
                 }
             }
