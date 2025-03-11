@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hello World"
+        android:textSize="16sp"
+        android:textColor="#FFAFCAFC"
+        android:textAlignment="textEnd"
+        android:layout_weight="6"
+        android:maxLines="1"
+        android:ellipsize="start"
+        />
+
+    <Button
+        style="@style/FirstApplicationTextStyleNormal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Abbas Anwer Ali"
+
+        android:textSize="16sp"
+        android:textAlignment="textEnd"
+        android:layout_weight="50"
+        />
+</LinearLayout>
