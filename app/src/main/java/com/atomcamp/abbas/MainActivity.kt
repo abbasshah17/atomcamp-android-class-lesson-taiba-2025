@@ -1,10 +1,7 @@
 package com.atomcamp.abbas
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
-import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -18,6 +15,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.atomcamp.abbas.adapter.UsersAdapter
 import com.atomcamp.abbas.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,37 +32,25 @@ class MainActivity : ComponentActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val userNameField: EditText = findViewById(R.id.userNameField)
+        val list: RecyclerView = findViewById(R.id.list)
 
-        userNameField.addTextChangedListener(
-            object : TextWatcher {
-                override fun beforeTextChanged(
-                    p0: CharSequence?,
-                    p1: Int,
-                    p2: Int,
-                    p3: Int,
-                ) {
-                }
+        list.adapter = UsersAdapter(
+            listOf(
+                Profile.Example1,
+                Profile.Example2,
+                Profile.Example3,
+                Profile.Example4,
+                Profile.Example5,
+                Profile.Example6,
+                Profile.Example7,
+                Profile.Example8,
+            )
+        )
 
-                override fun onTextChanged(
-                    p0: CharSequence?,
-                    p1: Int,
-                    p2: Int,
-                    p3: Int
-                ) {
-                    Log.i("MainActivity", "p0 = $p0, p1 = $p1, p2 = $p2, p3 = $p3.")
-                }
-
-                override fun afterTextChanged(
-                    p0: Editable?,
-                ) {
-                    if (p0?.isEmpty() == true) {
-
-                    } else if ((p0?.length ?: 0) <= 8) {
-                        userNameField.error = "Minimum length should be 8 characters."
-                    }
-                }
-            }
+        list.layoutManager = LinearLayoutManager(
+            this@MainActivity,
+            LinearLayoutManager.HORIZONTAL,
+            false,
         )
     }
 
