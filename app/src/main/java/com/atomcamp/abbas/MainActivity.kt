@@ -1,15 +1,15 @@
 package com.atomcamp.abbas
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.widget.EditText
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +31,39 @@ class MainActivity : ComponentActivity() {
 //        enableEdgeToEdge()
 
         setContentView(R.layout.activity_main)
+
+        val userNameField: EditText = findViewById(R.id.userNameField)
+
+        userNameField.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    p0: CharSequence?,
+                    p1: Int,
+                    p2: Int,
+                    p3: Int,
+                ) {
+                }
+
+                override fun onTextChanged(
+                    p0: CharSequence?,
+                    p1: Int,
+                    p2: Int,
+                    p3: Int
+                ) {
+                    Log.i("MainActivity", "p0 = $p0, p1 = $p1, p2 = $p2, p3 = $p3.")
+                }
+
+                override fun afterTextChanged(
+                    p0: Editable?,
+                ) {
+                    if (p0?.isEmpty() == true) {
+
+                    } else if ((p0?.length ?: 0) <= 8) {
+                        userNameField.error = "Minimum length should be 8 characters."
+                    }
+                }
+            }
+        )
     }
 
     override fun onStart() {

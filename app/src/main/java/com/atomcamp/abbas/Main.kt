@@ -2,7 +2,22 @@ package com.atomcamp.abbas
 
 fun main() {
 
-    dataExample()
+    val charArray: CharArray = CharArray(5) { index ->
+        if (index == 0) {
+            'a'
+        } else {
+            'b'
+        }
+    }
+    val text1: String = String(charArray)
+
+    val text2 = text1.plus("ajndksj")
+
+    /*for () {
+        text1 + text2
+    }*/
+
+    println("${text1 === text2}")
 }
 
 fun dataExample() {

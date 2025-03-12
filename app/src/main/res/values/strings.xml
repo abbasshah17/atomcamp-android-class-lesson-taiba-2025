@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Abbas First Application</string>
+
+    <string name="label">User Name</string>
 </resources>
