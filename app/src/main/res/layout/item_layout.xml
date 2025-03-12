@@ -6,15 +6,27 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/userName"
-        style="@style/FirstApplicationTextStyleNormal"
-
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        >
 
-        tools:text="abbas"
-        />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/abbas_profile"
+            />
+
+        <TextView
+            android:id="@+id/userName"
+            style="@style/FirstApplicationTextStyleNormal"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            tools:text="abbas"
+            />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/name"
